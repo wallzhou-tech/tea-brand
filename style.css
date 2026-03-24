@@ -1110,3 +1110,20 @@ details[open] .faq-question::after { content: '-'; }
 .review-author { font-size: 0.85rem; color: #888; text-align: right; }
 @media (max-width: 768px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .reviews-grid { grid-template-columns: 1fr; } }
+
+/* ===== 限时倒计时 ===== */
+.countdown-banner { background: linear-gradient(135deg, #c0392b, #e74c3c); padding: 40px 0; color: #fff; }
+.countdown-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.countdown-tag { background: rgba(255,255,255,0.2); display: inline-block; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 10px; }
+.countdown-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; }
+.countdown-desc { font-size: 0.95rem; opacity: 0.9; }
+.countdown-timer { text-align: center; }
+.timer-label { font-size: 0.8rem; opacity: 0.8; margin-bottom: 8px; }
+.timer-display { display: flex; align-items: center; gap: 4px; }
+.timer-block { display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.15); border-radius: 10px; padding: 10px 14px; }
+.timer-num { font-size: 2rem; font-weight: 700; line-height: 1; }
+.timer-unit { font-size: 0.7rem; opacity: 0.7; }
+.timer-sep { font-size: 2rem; font-weight: 700; opacity: 0.5; }
+.countdown-btn { background: #fff; color: #c0392b; padding: 14px 36px; border-radius: 30px; font-weight: 700; text-decoration: none; font-size: 1.05rem; transition: transform 0.3s; }
+.countdown-btn:hover { transform: scale(1.05); }
+@media (max-width: 768px) { .countdown-inner { flex-direction: column; text-align: center; } .timer-display { justify-content: center; } }

@@ -60,6 +60,32 @@
   </section>
 
 
+
+  <!-- 春茶限时特惠倒计时 -->
+  <section class="countdown-banner">
+    <div class="container countdown-inner">
+      <div class="countdown-left">
+        <div class="countdown-tag">⏰ 限时特惠</div>
+        <h2 class="countdown-title">春茶季代购优惠倒计时</h2>
+        <p class="countdown-desc">明前茶季即将结束，恢复原价！趁现在下单，享受春茶最低价</p>
+      </div>
+      <div class="countdown-timer">
+        <div class="timer-label">距离恢复原价还剩</div>
+        <div class="timer-display" id="countdown">
+          <span class="timer-block"><span class="timer-num" id="days">03</span><span class="timer-unit">天</span></span>
+          <span class="timer-sep">:</span>
+          <span class="timer-block"><span class="timer-num" id="hours">12</span><span class="timer-unit">时</span></span>
+          <span class="timer-sep">:</span>
+          <span class="timer-block"><span class="timer-num" id="minutes">45</span><span class="timer-unit">分</span></span>
+          <span class="timer-sep">:</span>
+          <span class="timer-block"><span class="timer-num" id="seconds">30</span><span class="timer-unit">秒</span></span>
+        </div>
+      </div>
+      <div class="countdown-cta">
+        <a href="#products" class="countdown-btn">立即抢购 ↓</a>
+      </div>
+    </div>
+  </section>
   <!-- 春茶季代购 Banner -->
   <section class="spring-tea-banner">
     <div class="container">
@@ -541,5 +567,35 @@
     });
   </script>
   <script src="products.js"></script>
+
+<script>
+// 春茶限时倒计时
+function startCountdown() {
+  const end = new Date();
+  end.setDate(end.getDate() + 3); // 3天后恢复原价
+  end.setHours(23, 59, 59, 999);
+
+  function update() {
+    const now = new Date();
+    const diff = end - now;
+    if (diff <= 0) {
+      document.getElementById('countdown').innerHTML = '已结束';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('days').textContent = String(d).padStart(2, '0');
+    document.getElementById('hours').textContent = String(h).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+  }
+  update();
+  setInterval(update, 1000);
+}
+startCountdown();
+</script>
+
 </body>
 </html>
