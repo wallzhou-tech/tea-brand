@@ -1024,3 +1024,8 @@ body, .section-desc, .product-desc, .agent-desc {
 .section { padding: 90px 0; }  /* 区块垂直padding增加，呼吸感更强 */
 .product-card { padding: 28px; }  /* 产品卡片内边距增大 */
 .culture-card { padding: 30px; }  /* 文化卡片内边距增大 */
+
+/* === 信任体系增强 === */
+.trust-bar { display: flex; justify-content: center; gap: 30px; padding: 15px 0; background: #faf9f7; }
+.trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #666; }
+.trust-icon { font-size: 1.2rem; }
