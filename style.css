@@ -946,3 +946,8 @@ button {
 @media (max-width: 480px) {
   .agent-steps { grid-template-columns: 1fr; }
 }
+
+/* === 禅意留白优化 === */
+.section-header { margin-bottom: 60px; }
+.culture-grid, .products-grid { gap: 40px; }
+.hero-content { padding: 60px 40px; }
