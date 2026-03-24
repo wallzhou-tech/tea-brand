@@ -1006,3 +1006,7 @@ button {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
   animation: btnShine 2.5s infinite;
 }
+
+/* ===== 产品链接包装 ===== */
+.product-link-wrap { display: block; text-decoration: none; }
+.product-image { cursor: pointer; }
