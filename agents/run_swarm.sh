@@ -46,7 +46,7 @@ case "$ROUTE" in
 .trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #666; }
 .trust-icon { font-size: 1.2rem; }
 EOF
-    echo "/* 下次路线: faq */" > "$PROJECT_DIR/.iter_route"
+    echo "faq" > "$PROJECT_DIR/.iter_route"
     ;;
   faq)
     # 添加FAQ区块
@@ -106,7 +106,7 @@ PYEOF
 details[open] .faq-question::after { content: '-'; }
 .faq-answer { padding: 10px 0 10px 20px; color: #666; font-size: 0.95rem; line-height: 1.7; }
 EOF
-    echo "/* 下次路线: pricing_badge */" > "$PROJECT_DIR/.iter_route"
+    echo "pricing_badge" > "$PROJECT_DIR/.iter_route"
     ;;
   pricing_badge)
     # 每个产品加"节省金额"标识
@@ -148,7 +148,7 @@ PYEOF
 /* === 节省金额标识 === */
 .product-saving { color: #c00; font-size: 0.8rem; font-weight: 600; margin-top: 4px; }
 EOF
-    echo "/* 下次路线: sourcing */" > "$PROJECT_DIR/.iter_route"
+    echo "sourcing" > "$PROJECT_DIR/.iter_route"
     ;;
   sourcing)
     echo "🔬 TeaResearcher: 启动真实商品调研..."
@@ -265,10 +265,10 @@ with open('/root/.openclaw/workspace/tea-brand/products.js', 'w') as f:
 print("✅ products.js 已更新")
 PYEOF
 
-    echo "/* 下次路线: trust */" > "$PROJECT_DIR/.iter_route"
+    echo "trust" > "$PROJECT_DIR/.iter_route"
     ;;
   *)
-    echo "/* 下次路线: trust */" > "$PROJECT_DIR/.iter_route"
+    echo "trust" > "$PROJECT_DIR/.iter_route"
     ;;
 esac
 
