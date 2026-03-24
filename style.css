@@ -1,0 +1,893 @@
+/* ========================================
+   茶韵 TEA - 样式表
+   ======================================== */
+
+/* CSS 变量 */
+:root {
+  /* 色彩系统 */
+  --color-primary: #4A7C59;
+  --color-primary-light: #6B9E7A;
+  --color-primary-dark: #3A6347;
+  --color-cream: #F5F0E8;
+  --color-cream-dark: #E8E0D5;
+  --color-gold: #B8956B;
+  --color-text: #2C2C2C;
+  --color-text-light: #666666;
+  --color-white: #FFFFFF;
+  --color-black: #1A1A1A;
+
+  /* 字体 */
+  --font-cn: 'Noto Serif SC', 'Songti SC', serif;
+  --font-en: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* 间距 */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 48px;
+  --spacing-xl: 80px;
+  --spacing-xxl: 120px;
+
+  /* 圆角 */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* 阴影 */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+  /* 过渡 */
+  --transition-fast: 200ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 600ms ease-out;
+}
+
+/* 重置样式 */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-cn);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* 容器 */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* ========================================
+   导航栏
+   ======================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: var(--spacing-sm) 0;
+  transition: background-color var(--transition-normal), 
+              box-shadow var(--transition-normal),
+              padding var(--transition-normal);
+}
+
+.header.scrolled {
+  background-color: rgba(245, 240, 232, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-xs) 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.logo-cn {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+}
+
+.logo-en {
+  font-family: var(--font-en);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-primary-light);
+  letter-spacing: 1px;
+}
+
+.nav-list {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.nav-link {
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width var(--transition-normal);
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* 汉堡菜单按钮 */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: all var(--transition-normal);
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ========================================
+   Hero 区域
+   ======================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-light) 40%,
+    var(--color-cream) 100%
+  );
+  z-index: -1;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero-content {
+  text-align: center;
+  color: var(--color-white);
+  padding: var(--spacing-lg);
+}
+
+.hero-title {
+  font-size: clamp(4rem, 15vw, 8rem);
+  font-weight: 700;
+  letter-spacing: 20px;
+  margin-bottom: var(--spacing-sm);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 300;
+  letter-spacing: 4px;
+  margin-bottom: var(--spacing-xs);
+  opacity: 0.95;
+}
+
+.hero-tagline {
+  font-family: var(--font-en);
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+  font-weight: 300;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  margin-bottom: var(--spacing-lg);
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--radius-xl);
+  letter-spacing: 2px;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background-color: var(--color-cream);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-white);
+  font-size: 1.5rem;
+  opacity: 0.7;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* ========================================
+   通用区块样式
+   ======================================== */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 6px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.section-subtitle {
+  font-family: var(--font-en);
+  font-size: 1rem;
+  color: var(--color-text-light);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* 淡入动画 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   茶叶文化介绍区
+   ======================================== */
+.culture {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--color-white);
+}
+
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.culture-card {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background-color: var(--color-cream);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.culture-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.culture-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.culture-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.culture-card-en {
+  font-family: var(--font-en);
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+.culture-card-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+/* ========================================
+   产品展示区
+   ======================================== */
+.products {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--color-cream);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+}
+
+.product-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-image {
+  height: 200px;
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-placeholder {
+  font-size: 2rem;
+  color: var(--color-white);
+  font-weight: 600;
+  letter-spacing: 4px;
+  opacity: 0.9;
+}
+
+.product-info {
+  padding: var(--spacing-md);
+}
+
+.product-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.product-name-en {
+  font-family: var(--font-en);
+  font-size: 0.8125rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-xs);
+}
+
+.product-price {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-gold);
+}
+
+/* ========================================
+   茶文化科普区
+   ======================================== */
+.knowledge {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--color-white);
+}
+
+.knowledge-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.knowledge-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+  padding: var(--spacing-lg);
+  background-color: var(--color-cream);
+  border-radius: var(--radius-xl);
+}
+
+.knowledge-item:nth-child(even) .knowledge-content {
+  order: 2;
+}
+
+.knowledge-item:nth-child(even) .knowledge-visual {
+  order: 1;
+}
+
+.knowledge-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.knowledge-text {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  line-height: 1.9;
+}
+
+.knowledge-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+}
+
+/* 茶叶分类图表 */
+.knowledge-diagram {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.diagram-item {
+  padding: 8px 16px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.diagram-arrow {
+  color: var(--color-primary-light);
+  font-size: 1.25rem;
+}
+
+.knowledge-en {
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  margin-top: var(--spacing-sm);
+  text-align: center;
+}
+
+/* 水温仪表 */
+.temp-gauge {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-end;
+  height: 150px;
+}
+
+.temp-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.temp-bar {
+  width: 40px;
+  background: linear-gradient(to top, var(--color-primary), var(--color-gold));
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  min-height: 40px;
+}
+
+.temp-item span {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.temp-item small {
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+}
+
+/* 四季饮茶 */
+.season-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+  width: 100%;
+  max-width: 280px;
+}
+
+.season-item {
+  padding: var(--spacing-sm);
+  text-align: center;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: transform var(--transition-fast);
+}
+
+.season-item:hover {
+  transform: scale(1.05);
+}
+
+.season-item small {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+.season-item.spring {
+  background-color: #E8F5E9;
+  color: #2E7D32;
+}
+
+.season-item.summer {
+  background-color: #FFF3E0;
+  color: #E65100;
+}
+
+.season-item.autumn {
+  background-color: #FBE9E7;
+  color: #BF360C;
+}
+
+.season-item.winter {
+  background-color: #E3F2FD;
+  color: #1565C0;
+}
+
+/* ========================================
+   页脚
+   ======================================== */
+.footer {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  padding: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer-logo span {
+  font-family: var(--font-en);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.footer-slogan {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.footer-slogan-en {
+  font-family: var(--font-en);
+  font-size: 0.875rem;
+  opacity: 0.7;
+}
+
+.footer-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-cream);
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.footer-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.9375rem;
+  opacity: 0.85;
+}
+
+.footer-list a:hover {
+  opacity: 1;
+  color: var(--color-cream);
+}
+
+.footer-icon {
+  font-size: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  font-size: 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+  background-color: var(--color-primary-light);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  font-size: 0.875rem;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+/* ========================================
+   响应式设计
+   ======================================== */
+
+/* 平板端 */
+@media (max-width: 1024px) {
+  .culture-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .knowledge-item {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .knowledge-item:nth-child(even) .knowledge-content,
+  .knowledge-item:nth-child(even) .knowledge-visual {
+    order: unset;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+  }
+}
+
+/* 移动端 */
+@media (max-width: 768px) {
+  :root {
+    --spacing-xl: 60px;
+    --spacing-xxl: 80px;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--color-cream);
+    padding: 80px var(--spacing-lg) var(--spacing-lg);
+    transition: right var(--transition-normal);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .nav.active {
+    right: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .nav-link {
+    font-size: 1.125rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .culture-grid,
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    letter-spacing: 10px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .footer-brand {
+    grid-column: span 1;
+    text-align: center;
+  }
+
+  .footer-contact,
+  .footer-social {
+    text-align: center;
+  }
+
+  .footer-list li {
+    justify-content: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .season-grid {
+    max-width: 200px;
+  }
+}
+
+/* 小屏手机 */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .hero-content {
+    padding: var(--spacing-md);
+  }
+
+  .hero-title {
+    letter-spacing: 6px;
+  }
+
+  .hero-cta {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.9375rem;
+  }
+
+  .section-title {
+    letter-spacing: 3px;
+  }
+
+  .culture-card,
+  .product-card,
+  .knowledge-item {
+    padding: var(--spacing-md);
+  }
+
+  .knowledge-diagram {
+    gap: 4px;
+  }
+
+  .diagram-item {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+
+  .diagram-arrow {
+    font-size: 1rem;
+  }
+}

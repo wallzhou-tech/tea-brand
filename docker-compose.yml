@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tea-brand-web
+    ports:
+      - "8080:80"
+    volumes:
+      # 开发模式：挂载本地目录实现热更新
+      - ./dist:/usr/share/nginx/html:ro
+    restart: unless-stopped
+    networks:
+      - tea-network
+
+  # 可选：本地开发服务器（支持热重载）
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: tea-brand-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    networks:
+      - tea-network
+
+networks:
+  tea-network:
+    driver: bridge
