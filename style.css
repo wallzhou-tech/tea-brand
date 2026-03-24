@@ -1127,3 +1127,8 @@ details[open] .faq-question::after { content: '-'; }
 .countdown-btn { background: #fff; color: #c0392b; padding: 14px 36px; border-radius: 30px; font-weight: 700; text-decoration: none; font-size: 1.05rem; transition: transform 0.3s; }
 .countdown-btn:hover { transform: scale(1.05); }
 @media (max-width: 768px) { .countdown-inner { flex-direction: column; text-align: center; } .timer-display { justify-content: center; } }
+
+/* === 信任体系增强 === */
+.trust-bar { display: flex; justify-content: center; gap: 30px; padding: 15px 0; background: #faf9f7; }
+.trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #666; }
+.trust-icon { font-size: 1.2rem; }
