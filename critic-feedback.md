@@ -1,20 +1,6 @@
-#!/bin/bash
-# TeaCritic 代理 - 专业UX评审，从客户旅程角度给出改进建议
-set -e
-
-echo "🎨 TeaCritic 启动：专业UX评审..."
-
-CRITIC_REPORT="/root/.openclaw/workspace/tea-brand/critic-feedback.md"
-DATE=$(date '+%Y-%m-%d %H:%M')
-
-cat > "$CRITIC_REPORT" << 'EOF'
 # 茶韵 TEA - 专业UX评审报告
-EOF
+# UX评审报告 - 2026-03-24 14:34
 
-echo "# UX评审报告 - $DATE" >> "$CRITIC_REPORT"
-echo "" >> "$CRITIC_REPORT"
-
-cat >> "$CRITIC_REPORT" << 'EOF'
 ## 🔍 用户旅程分析（Customer Journey）
 
 ### 触达 → 兴趣 → 信任 → 行动 → 推荐
@@ -63,7 +49,3 @@ cat >> "$CRITIC_REPORT" << 'EOF'
 8. 产品对比功能
 9. 会员注册/积分体系
 
-EOF
-
-echo "✅ 评审报告已记录到 $CRITIC_REPORT"
-cat "$CRITIC_REPORT"
