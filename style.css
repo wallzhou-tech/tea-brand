@@ -1064,3 +1064,34 @@ details[open] .faq-question::after { content: '-'; }
 .trust-bar { display: flex; justify-content: center; gap: 30px; padding: 15px 0; background: #faf9f7; }
 .trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #666; }
 .trust-icon { font-size: 1.2rem; }
+
+/* ===== 为什么选我们代购 ===== */
+.why-us { background: #faf9f7; padding: 80px 0; }
+.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+.why-card {
+  background: #fff; border-radius: 20px; padding: 35px 25px;
+  text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.why-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(74,124,89,0.12); }
+.why-icon { font-size: 3rem; margin-bottom: 18px; }
+.why-card h3 { font-size: 1.15rem; color: #333; margin-bottom: 10px; font-weight: 600; }
+.why-card p { font-size: 0.9rem; color: #777; line-height: 1.7; }
+@media (max-width: 768px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .why-grid { grid-template-columns: 1fr; } }
+
+/* ===== 顶部信任条 ===== */
+.trust-top { background: var(--primary); color: #fff; padding: 8px 0; font-size: 0.82rem; }
+.trust-top-inner { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+.trust-top-inner span { opacity: 0.95; }
+
+/* ===== 品牌故事 ===== */
+.brand-story { background: #fff; padding: 80px 0; }
+.story-content { display: flex; align-items: center; gap: 60px; }
+.story-text { flex: 1; }
+.story-text p { font-size: 1.05rem; color: #555; line-height: 1.9; margin-bottom: 15px; }
+.story-stats { display: flex; gap: 40px; flex: 0 0 auto; }
+.stat-item { text-align: center; }
+.stat-num { font-size: 2.5rem; font-weight: 700; color: var(--primary); }
+.stat-label { font-size: 0.85rem; color: #888; margin-top: 5px; }
+@media (max-width: 768px) { .story-content { flex-direction: column; } .story-stats { gap: 20px; } }
