@@ -1040,3 +1040,8 @@ body, .section-desc, .product-desc, .agent-desc {
 .faq-question::after { content: '+'; float: right; color: var(--primary); font-weight: 700; }
 details[open] .faq-question::after { content: '-'; }
 .faq-answer { padding: 10px 0 10px 20px; color: #666; font-size: 0.95rem; line-height: 1.7; }
+
+/* === 信任体系增强 === */
+.trust-bar { display: flex; justify-content: center; gap: 30px; padding: 15px 0; background: #faf9f7; }
+.trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #666; }
+.trust-icon { font-size: 1.2rem; }
