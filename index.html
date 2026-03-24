@@ -172,7 +172,7 @@
         <div class="product-card fade-in hot">
           <div class="product-badge hot-badge">🔥 爆款</div>
           <div class="product-image">
-            <a href="product.html?id=1" class="product-link-wrap"><div class="product-placeholder">龙井</div></a>
+            <a href="product.html?id=1" class="product-link-wrap"><img src="/images/longjing.jpg" alt="龙井" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></a>
             <div class="product-source">天猫旗舰店</div>
           </div>
           <div class="product-info">
@@ -190,7 +190,7 @@
         <div class="product-card fade-in hot">
           <div class="product-badge hot-badge">🔥 爆款</div>
           <div class="product-image">
-            <a href="product.html?id=2" class="product-link-wrap"><div class="product-placeholder">岩茶</div></a>
+            <a href="product.html?id=2" class="product-link-wrap"><img src="/images/dahongpao.jpg" alt="大红袍" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></a>
             <div class="product-source">京东自营</div>
           </div>
           <div class="product-info">
@@ -208,7 +208,7 @@
         <div class="product-card fade-in">
           <div class="product-badge hot-badge">💎 精选</div>
           <div class="product-image">
-            <a href="product.html?id=3" class="product-link-wrap"><div class="product-placeholder">普洱</div></a>
+            <a href="product.html?id=3" class="product-link-wrap"><img src="/images/puer.jpg" alt="普洱" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></a>
             <div class="product-source">拼多多</div>
           </div>
           <div class="product-info">
@@ -226,7 +226,7 @@
         <div class="product-card fade-in hot">
           <div class="product-badge hot-badge">🔥 爆款</div>
           <div class="product-image">
-            <a href="product.html?id=4" class="product-link-wrap"><div class="product-placeholder">铁观音</div></a>
+            <a href="product.html?id=4" class="product-link-wrap"><img src="/images/tieguanyin.jpg" alt="铁观音" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></a>
             <div class="product-source">淘宝心选</div>
           </div>
           <div class="product-info">
@@ -243,7 +243,7 @@
         </div>
         <div class="product-card fade-in">
           <div class="product-image">
-            <a href="product.html?id=5" class="product-link-wrap"><div class="product-placeholder">白茶</div></a>
+            <a href="product.html?id=5" class="product-link-wrap"><img src="/images/baimao.jpg" alt="白茶" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></a>
             <div class="product-source">天猫国际</div>
           </div>
           <div class="product-info">
@@ -260,7 +260,7 @@
         </div>
         <div class="product-card fade-in">
           <div class="product-image">
-            <a href="product.html?id=6" class="product-link-wrap"><div class="product-placeholder">碧螺春</div></a>
+            <a href="product.html?id=6" class="product-link-wrap"><img src="/images/biluochun.jpg" alt="碧螺春" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></a>
             <div class="product-source">网易严选</div>
           </div>
           <div class="product-info">
@@ -432,6 +432,46 @@
       </div>
     </div>
   </section>
+
+  <!-- 代购购物流程 -->
+  <section class="purchase-flow" id="purchase-flow">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">代购流程</h2>
+        <p class="section-subtitle">Simple Purchasing Process</p>
+      </div>
+      <div class="flow-steps">
+        <div class="flow-step fade-in">
+          <div class="flow-num">1</div>
+          <div class="flow-icon">🔍</div>
+          <h3>选择产品</h3>
+          <p>浏览我们的精选茶叶，选好心仪的商品</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step fade-in">
+          <div class="flow-num">2</div>
+          <div class="flow-icon">💬</div>
+          <h3>联系我们</h3>
+          <p>通过微信/小红书/邮件联系我们，确认订单</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step fade-in">
+          <div class="flow-num">3</div>
+          <div class="flow-icon">💳</div>
+          <h3>支付货款</h3>
+          <p>微信/支付宝转账，我们帮您代付</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step fade-in">
+          <div class="flow-num">4</div>
+          <div class="flow-icon">📦</div>
+          <h3>坐等到货</h3>
+          <p>我们从官方渠道下单，3-7天送货上门</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 常见问题 FAQ -->
   <section class="faq" id="faq">
     <div class="container">
@@ -595,6 +635,16 @@ function startCountdown() {
   setInterval(update, 1000);
 }
 startCountdown();
+</script>
+
+
+<script>
+function copyWechat() {
+  navigator.clipboard.writeText('chayun_tea').then(() => {
+    alert('微信号已复制：chayun_tea
+打开微信添加好友');
+  });
+}
 </script>
 
 </body>

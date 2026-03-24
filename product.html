@@ -144,9 +144,11 @@
     // 获取URL参数
     const params = new URLSearchParams(window.location.search);
     const id = parseInt(params.get('id')) || 1;
+    const productImages = {1:'/images/longjing.jpg',2:'/images/dahongpao.jpg',3:'/images/puer.jpg',4:'/images/tieguanyin.jpg',5:'/images/baimao.jpg',6:'/images/biluochun.jpg'};
     const product = PRODUCTS.find(p => p.id === id) || PRODUCTS[0];
 
     // 渲染详情
+    document.getElementById('detailProductImg').src = productImages[id] || '/images/longjing.jpg';
     document.title = `${product.name} - 茶韵 TEA`;
     document.getElementById('breadcrumbName').textContent = product.name;
 
