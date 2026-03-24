@@ -891,3 +891,6 @@ button {
     font-size: 1rem;
   }
 }
+/* 增强悬停动画 */
+.product-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(74,124,89,0.15); }
+.fade-in { animation: fadeIn 0.6s ease-out forwards; }
