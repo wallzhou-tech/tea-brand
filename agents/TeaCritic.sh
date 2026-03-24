@@ -1,0 +1,69 @@
+#!/bin/bash
+# TeaCritic 代理 - 专业UX评审，从客户旅程角度给出改进建议
+set -e
+
+echo "🎨 TeaCritic 启动：专业UX评审..."
+
+CRITIC_REPORT="/root/.openclaw/workspace/tea-brand/critic-feedback.md"
+DATE=$(date '+%Y-%m-%d %H:%M')
+
+cat > "$CRITIC_REPORT" << 'EOF'
+# 茶韵 TEA - 专业UX评审报告
+EOF
+
+echo "# UX评审报告 - $DATE" >> "$CRITIC_REPORT"
+echo "" >> "$CRITIC_REPORT"
+
+cat >> "$CRITIC_REPORT" << 'EOF'
+## 🔍 用户旅程分析（Customer Journey）
+
+### 触达 → 兴趣 → 信任 → 行动 → 推荐
+每个节点检查点：
+
+**触达阶段**
+- ✅ SEO基础：title/description已有
+- ⚠️ 关键词：需增加"茶叶代购""便宜茶叶"等词
+- ❌ 缺少首页Banner关键词
+
+**兴趣阶段**
+- ✅ 禅意设计吸睛
+- ⚠️ 产品图片是占位图，需要真实产品图
+- ❌ 产品对比/差异化不清晰
+
+**信任阶段**
+- ⚠️ 客户评价太少（只有3条）
+- ⚠️ 缺少退换货政策
+- ❌ 缺品牌故事/创始故事
+
+**行动阶段**
+- ✅ CTA按钮明显
+- ⚠️ "立即代购"点击后跳转外部，用户可能流失
+- ❌ 没有询价/咨询入口
+
+**推荐阶段**
+- ❌ 没有分享/口碑机制
+- ❌ 没有会员/积分体系
+
+---
+
+## 🎯 优先改进建议（按影响转化率排序）
+
+### P0 - 立即修复
+1. 添加退换货政策说明
+2. 产品卡片增加"节省金额"标识
+3. 顶部加联系方式/咨询入口
+
+### P1 - 本周迭代
+4. FAQ常见问题区块
+5. 增加更多客户评价（至少6条）
+6. 创始故事/品牌故事区块
+
+### P2 - 进阶功能
+7. 限时折扣倒计时
+8. 产品对比功能
+9. 会员注册/积分体系
+
+EOF
+
+echo "✅ 评审报告已记录到 $CRITIC_REPORT"
+cat "$CRITIC_REPORT"

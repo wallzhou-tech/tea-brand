@@ -1010,3 +1010,17 @@ button {
 /* ===== 产品链接包装 ===== */
 .product-link-wrap { display: block; text-decoration: none; }
 .product-image { cursor: pointer; }
+
+/* === 禅意UX深化 - 呼吸感与阅读舒适度 === */
+body, .section-desc, .product-desc, .agent-desc {
+  line-height: 1.95;  /* 提升阅读行高，禅意阅读体验 */
+}
+.section-title { margin-bottom: 24px; }  /* 标题与描述间距增大 */
+.section-subtitle { letter-spacing: 6px; }  /* 英文副标题字间距增加 */
+.culture-grid { margin-top: 20px; }  /* 文化区顶部呼吸空间 */
+.hero-subtitle { margin-bottom: 20px; }  /* Hero副标题下方空间 */
+.hero-content { max-width: 800px; margin: 0 auto; }  /* Hero内容居中，视觉更稳 */
+.cta-group { gap: 16px; }  /* CTA按钮间距微调 */
+.section { padding: 90px 0; }  /* 区块垂直padding增加，呼吸感更强 */
+.product-card { padding: 28px; }  /* 产品卡片内边距增大 */
+.culture-card { padding: 30px; }  /* 文化卡片内边距增大 */
