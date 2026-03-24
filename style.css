@@ -1210,3 +1210,6 @@ details[open] .faq-question::after { content: '-'; }
 .faq-question::after { content: '+'; float: right; color: var(--primary); font-weight: 700; }
 details[open] .faq-question::after { content: '-'; }
 .faq-answer { padding: 10px 0 10px 20px; color: #666; font-size: 0.95rem; line-height: 1.7; }
+
+/* === 节省金额标识 === */
+.product-saving { color: #c00; font-size: 0.8rem; font-weight: 600; margin-top: 4px; }
