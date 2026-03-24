@@ -894,3 +894,55 @@ button {
 /* 增强悬停动画 */
 .product-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(74,124,89,0.15); }
 .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+
+/* ===== 代购产品卡片 ===== */
+.product-card { position: relative; }
+.product-badge {
+  position: absolute; top: 12px; left: 12px; z-index: 2;
+  padding: 4px 10px; border-radius: 12px;
+  font-size: 0.75rem; font-weight: 600;
+}
+.hot-badge { background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: #fff; }
+.product-source {
+  position: absolute; bottom: 8px; right: 8px;
+  background: rgba(0,0,0,0.6); color: #fff;
+  padding: 2px 8px; border-radius: 8px; font-size: 0.7rem;
+}
+.product-price-row { display: flex; align-items: baseline; gap: 8px; margin: 6px 0; }
+.product-price { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
+.product-orig-price { text-decoration: line-through; color: #999; font-size: 0.85rem; }
+.product-discount { background: #fee; color: #c00; font-size: 0.7rem; padding: 1px 5px; border-radius: 4px; }
+.product-meta { font-size: 0.75rem; color: #888; margin: 4px 0 10px; }
+.product-btn {
+  display: block; text-align: center; width: 100%;
+  background: linear-gradient(135deg, var(--primary), #6B9E7A);
+  color: #fff; padding: 10px; border-radius: 24px;
+  font-weight: 600; text-decoration: none;
+  transition: all 0.3s ease;
+}
+.product-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(74,124,89,0.35); }
+
+/* ===== 代购服务区 ===== */
+.agent-service { background: linear-gradient(135deg, #f8f6f0 0%, #f0ebe0 100%); padding: 80px 0; }
+.agent-intro { text-align: center; max-width: 680px; margin: 0 auto 50px; }
+.agent-desc { font-size: 1.1rem; color: #666; line-height: 1.8; }
+.agent-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 40px; }
+.agent-step {
+  background: #fff; border-radius: 20px; padding: 30px 20px;
+  text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  position: relative;
+}
+.agent-step-num { position: absolute; top: -10px; left: 20px; font-size: 3rem; font-weight: 700; color: rgba(74,124,89,0.08); }
+.agent-step-icon { font-size: 2.5rem; margin-bottom: 12px; }
+.agent-step h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: 8px; }
+.agent-step p { font-size: 0.85rem; color: #777; line-height: 1.6; }
+.agent-advantages { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.advantage-item { background: #fff; padding: 10px 20px; border-radius: 30px; font-size: 0.9rem; color: #555; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+
+@media (max-width: 768px) {
+  .agent-steps { grid-template-columns: repeat(2, 1fr); }
+  .agent-advantages { gap: 10px; }
+}
+@media (max-width: 480px) {
+  .agent-steps { grid-template-columns: 1fr; }
+}
