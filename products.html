@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>代购好茶 - 茶韵 TEA</title>
+  <meta name="description" content="茶韵 TEA 精选天猫、京东、淘宝热销茶叶，代购价格更优惠，正品保障。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --primary: #4A7C59;
+      --primary-light: #6B9E7A;
+      --bg: #F5F0E8;
+      --text: #333;
+    }
+    body { background: var(--bg); font-family: 'Noto Serif SC', serif; margin: 0; }
+    .products-hero {
+      background: linear-gradient(135deg, #4A7C59, #6B9E7A);
+      padding: 60px 0;
+      text-align: center;
+      color: #fff;
+    }
+    .products-hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    .products-hero p { opacity: 0.9; font-size: 1.1rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .filter-bar {
+      display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;
+      padding: 30px 0; border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .filter-btn {
+      padding: 8px 20px; border-radius: 20px; border: 1px solid var(--primary);
+      background: transparent; color: var(--primary); cursor: pointer;
+      font-size: 0.9rem; transition: all 0.3s;
+    }
+    .filter-btn.active, .filter-btn:hover { background: var(--primary); color: #fff; }
+    .products-grid-full {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+      padding: 50px 0;
+    }
+    @media(max-width: 768px) { .products-grid-full { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width: 480px) { .products-grid-full { grid-template-columns: 1fr; } }
+    .back-home {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--primary); text-decoration: none; font-size: 0.9rem;
+      padding: 20px 0;
+    }
+    .back-home:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-cn">茶韵</span>
+        <span class="logo-en">TEA</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">首页</a></li>
+          <li><a href="products.html" class="nav-link active">代购好茶</a></li>
+          <li><a href="index.html#agent" class="nav-link">代购服务</a></li>
+          <li><a href="index.html#knowledge" class="nav-link">茶知识</a></li>
+          <li><a href="index.html#contact" class="nav-link">联系</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="products-hero">
+    <div class="container">
+      <h1>🍵 代购好茶</h1>
+      <p>精选六大茶类 · 正品低价 · 送货上门</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <a href="index.html" class="back-home">← 返回首页</a>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="绿茶">绿茶</button>
+      <button class="filter-btn" data-filter="乌龙茶">乌龙茶</button>
+      <button class="filter-btn" data-filter="普洱">普洱</button>
+      <button class="filter-btn" data-filter="白茶">白茶</button>
+      <button class="filter-btn" data-filter="爆款">🔥 爆款</button>
+    </div>
+    <div class="products-grid-full" id="productsGrid">
+      <!-- JS渲染产品 -->
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h2 class="footer-logo">茶韵 <span>TEA</span></h2>
+          <p class="footer-slogan">传承茶文化，品味慢生活</p>
+        </div>
+        <div class="footer-contact">
+          <h3 class="footer-title">联系我们</h3>
+          <ul class="footer-list">
+            <li>📧 <a href="mailto:info@chayun-tea.com">info@chayun-tea.com</a></li>
+            <li>📞 +86 21 1234 5678</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 茶韵 TEA. 保留所有权利.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const PRODUCTS = [
+      { id:1, name:"西湖龙井 明前特级", name_en:"West Lake Longjing", price:"¥328", origPrice:"¥458", source:"京东自营", sourceUrl:"https://item.jd.com/100138373427.html", tags:["绿茶","明前茶","爆款"], hot:true, rating:4.9, sold:"2.3万", saving:"省¥130" },
+      { id:2, name:"武夷正岩 大红袍", name_en:"Wuyi Da Hong Pao", price:"¥528", origPrice:"¥698", source:"天猫旗舰店", sourceUrl:"https://www.tmall.com", tags:["乌龙茶","岩茶","爆款"], hot:true, rating:4.8, sold:"1.8万", saving:"省¥170" },
+      { id:3, name:"云南古树 普洱熟茶", name_en:"Yunnan Pu'er", price:"¥268", origPrice:"¥388", source:"天猫超市", sourceUrl:"https://www.tmall.com", tags:["普洱","熟茶"], hot:false, rating:4.7, sold:"3.1万", saving:"省¥120" },
+      { id:4, name:"安溪铁观音 浓香型", name_en:"Anxi Tieguanyin", price:"¥198", origPrice:"¥288", source:"淘宝八马旗舰", sourceUrl:"https://www.taobao.com", tags:["乌龙茶","铁观音","爆款"], hot:true, rating:4.6, sold:"5.6万", saving:"省¥90" },
+      { id:5, name:"福鼎白茶 白毫银针", name_en:"Fuding White Needle", price:"¥458", origPrice:"¥588", source:"天猫国际", sourceUrl:"https://www.tmall.hk", tags:["白茶","银针"], hot:false, rating:4.9, sold:"1.2万", saving:"省¥130" },
+      { id:6, name:"碧螺春 洞庭东山", name_en:"Bi Luo Chun", price:"¥258", origPrice:"¥368", source:"天猫洞庭旗舰", sourceUrl:"https://www.tmall.com", tags:["绿茶","碧螺春"], hot:false, rating:4.8, sold:"1.5万", saving:"省¥110" },
+    ];
+
+    function renderProducts(filter = 'all') {
+      const grid = document.getElementById('productsGrid');
+      const filtered = filter === 'all' ? PRODUCTS :
+        filter === '爆款' ? PRODUCTS.filter(p => p.hot) :
+        PRODUCTS.filter(p => p.tags.includes(filter));
+      grid.innerHTML = filtered.map(p => `
+        <div class="product-card fade-in ${p.hot ? 'hot' : ''}">
+          ${p.hot ? '<div class="product-badge hot-badge">🔥 爆款</div>' : ''}
+          <a href="product.html?id=${p.id}">
+            <div class="product-image">
+              <div class="product-placeholder">${p.name.slice(0,2)}</div>
+              <div class="product-source">${p.source}</div>
+            </div>
+          </a>
+          <div class="product-info">
+            <h3 class="product-name"><a href="product.html?id=${p.id}">${p.name}</a></h3>
+            <p class="product-name-en">${p.name_en}</p>
+            <div class="product-price-row">
+              <span class="product-price">${p.price}</span>
+              <span class="product-orig-price">${p.origPrice}</span>
+            </div>
+            <p class="product-meta">已售 ${p.sold} | 评分 ${p.rating}⭐</p>
+            <p class="product-saving">${p.saving} (含代购服务)</p>
+            <a href="product.html?id=${p.id}" class="product-btn">查看详情 →</a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 筛选
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderProducts(btn.dataset.filter);
+      });
+    });
+
+    renderProducts();
+  </script>
+</body>
+</html>
